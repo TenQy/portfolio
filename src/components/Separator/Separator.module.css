@@ -1,0 +1,7 @@
+.separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}

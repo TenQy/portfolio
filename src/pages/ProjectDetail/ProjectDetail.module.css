@@ -1,0 +1,134 @@
+/* === PROJECT DETAIL PAGE === */
+.page {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-4xl) var(--space-xl) var(--space-2xl);
+}
+
+/* ── Nav ── */
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color var(--transition);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  padding: 0;
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.flipIcon {
+  transform: rotate(180deg);
+}
+
+.separator {
+  margin: 0;
+  padding: var(--space-2xl) 0 0;
+}
+
+/* ── Content layout ── */
+.twocol {
+  display: flex;
+  flex-direction: column;
+}
+
+.tcRow {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.tcRow:first-child {
+  padding-top: 0;
+}
+
+.tcRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tcLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  padding-top: 2px;
+  line-height: 1.4;
+}
+
+.tcText {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.tcFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  list-style: none;
+  padding: 0;
+}
+
+.tcFeature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.tcFeatName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tcFeatDesc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+
+  .navRow {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .tcRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .tcText {
+    font-size: var(--text-sm);
+  }
+}

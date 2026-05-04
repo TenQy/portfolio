@@ -1,0 +1,257 @@
+/* -- Layout -- */
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* -- Image -- */
+.imageWrapper {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: default;
+  box-shadow: var(--shadow);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.overlayTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at var(--mouse-x, 50%) 0%,
+    var(--glow-secondary),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.overlayBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at var(--mouse-x, 50%) 100%,
+    var(--glow-secondary),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.overlayTop,
+.overlayBottom {
+  transition: opacity 0.2s ease;
+}
+
+/* -- Image actions -- */
+.expandBtn {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: rgba(13, 13, 20, 0.6);
+  border: 1px solid var(--border);
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity var(--transition), background var(--transition), color var(--transition);
+  z-index: 3;
+}
+
+.expandBtn:hover {
+  background: rgba(13, 13, 20, 0.9);
+  color: #CCF0FC;
+  border-color: #CCF0FC;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(13, 13, 20, 0.6);
+  border: 1px solid var(--border);
+  color: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity var(--transition), background var(--transition);
+}
+
+.navBtn.prev { left: var(--space-sm); }
+.navBtn.next { right: var(--space-sm); }
+
+.navBtn:hover {
+  background: rgba(13, 13, 20, 0.9);
+  border-color: #CCF0FC;
+}
+
+.imageWrapper:hover .navBtn,
+.imageWrapper:hover .expandBtn {
+  opacity: 1;
+}
+
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-sm);
+  z-index: 2;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dot.active {
+  background: var(--color-accent);
+  transform: scale(1.3);
+}
+
+/* -- Content layout -- */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* -- Content text -- */
+.projectName {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.statusBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px var(--space-sm);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.description {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.techTag {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-md);
+}
+
+/* -- Actions -- */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.btnFull {
+  width: 100%;
+  justify-content: center;
+}
+
+.btnRow {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.btnGrow {
+  flex: 1;
+  justify-content: center;
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .expandBtn,
+  .indicators {
+    display: none;
+  }
+  
+  .projectName {
+    font-size: var(--text-xl);
+  }
+
+  .techTag {
+    font-size: var(--text-xs);
+    padding: 2px var(--space-sm);
+  }
+
+  .description {
+    font-size: var(--text-sm);
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}

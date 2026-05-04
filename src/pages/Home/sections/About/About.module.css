@@ -1,0 +1,106 @@
+/* === ABOUT SECTION === */
+.about {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  margin-bottom: var(--space-lg);
+}
+
+/* -- Layout -- */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* -- Text -- */
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.text p {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* -- Highlights -- */
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-content: flex-start;
+}
+
+.highlightItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition);
+  cursor: default;
+  box-shadow: var(--shadow-sm);
+}
+
+/* -- Glow effect -- */
+.highlightItem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--glow-secondary),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.highlightItem:hover::after {
+  opacity: 1;
+}
+
+.highlightTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.highlightDesc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: var(--text-2xl);
+  }
+
+  .text p {
+    font-size: var(--text-sm);
+  }
+}

@@ -1,0 +1,147 @@
+/* === SKILLS SECTION === */
+.skills {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+}
+
+/* -- Layout -- */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-shrink: 0;
+  min-width: 120px;
+}
+
+.categoryTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: var(--space-sm);
+  align-self: left;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* -- Tech Item -- */
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-card);
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 72px;
+  transition: border-color var(--transition), transform var(--transition);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Glow Effect */
+.techItem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--glow-secondary),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.techItem:hover::after {
+  opacity: 1;
+  border-color: var(--color-accent);
+}
+
+/* Icon and Name */
+.techIcon {
+  color: var(--text-secondary);
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.techItem:hover .techIcon {
+  color: var(--color-accent);
+}
+
+.techName {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+  .grid {
+    gap: var(--space-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--text-2xl);
+  }
+
+  .category {
+    gap: var(--space-sm);
+  }
+
+  .categoryTitle {
+    font-size: var(--text-xs);
+  }
+
+  .techList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    flex: 1;
+  }
+
+  .techItem {
+    width: 60px;
+    padding: var(--space-xs);
+  }
+
+  .techName {
+    font-size: 9px;
+  }
+
+  .techIcon {
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+  }
+}

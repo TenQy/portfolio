@@ -1,0 +1,129 @@
+/* === CONTACT SECTION */
+.contact {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-md);
+}
+
+/* -- Text -- */
+.description {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: var(--space-xl);
+}
+
+/* -- Actions -- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Email row: input-like display + copy button */
+.emailRow {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: border-color var(--transition);
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.emailRow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(204, 240, 252, 0.06),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.emailRow:hover::after {
+  opacity: 1;
+}
+
+.emailDisplay {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-family: var(--font-code);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.copyBtn:hover {
+  color: var(--color-accent);
+  background: rgba(204, 240, 252, 0.05);
+}
+
+.copyBtn.copied {
+  color: var(--color-accent);
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: var(--text-2xl);
+  }
+
+  .description {
+    font-size: var(--text-sm);
+  }
+
+  .actions {
+    max-width: 100%;
+  }
+
+  .emailDisplay {
+    font-size: 0.75rem;
+  }
+}
