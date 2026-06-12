@@ -8,14 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: backdrop-filter var(--transition), border-color var(--transition);
+  transition: border-color var(--transition);
   box-shadow: var(--shadow);
 }
 
 .navbar.scrolled {
   background: var(--bg-secondary);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
@@ -166,7 +165,6 @@
   max-width: 360px;
   background: var(--bg-secondary);
   backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(16px);
   border-left: 1px solid var(--border);
   display: flex;
   flex-direction: column;

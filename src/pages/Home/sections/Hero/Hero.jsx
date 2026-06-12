@@ -5,7 +5,7 @@ import profileImg from '../../../../assets/images/hero.webp'
 import Button from '../../../../components/Button/Button'
 import { useMouseGlow } from '../../../../hooks/useMouseGlow'
 import { contactInfo } from '../../../../data/contact'
-import cv from '../../../../assets/angel-arroyo-cv.pdf'
+import cv from '../../../../assets/Angel_Arroyo_CV.pdf'
 
 function Hero() {
   const { t } = useTranslation()

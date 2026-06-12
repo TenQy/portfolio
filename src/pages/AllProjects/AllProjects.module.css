@@ -88,7 +88,6 @@
   top: calc(100% + var(--space-xs));
   right: 0;
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   background-color: var(--bg-secondary);
   border: 1px solid color-mix(in srgb, var(--border) 80%, var(--color-accent) 20%);
   border-radius: var(--radius-sm);

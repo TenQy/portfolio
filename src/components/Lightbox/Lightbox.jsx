@@ -34,16 +34,16 @@ function Lightbox({ images, current, onClose, onPrev, onNext }) {
       <div className={styles.container} onClick={e => e.stopPropagation()}>
         <img src={imageSrc || ''} alt="preview" className={styles.image} />
 
-        <button className={styles.close} onClick={onClose}>
+        <button aria-label="Cerrar imagen" className={styles.close} onClick={onClose}>
           <RiCloseLine />
         </button>
 
         {images.length > 1 && (
           <>
-            <button className={`${styles.nav} ${styles.prev}`} onClick={e => { e.stopPropagation(); onPrev() }}>
+            <button aria-label="Imagen anterior" className={`${styles.nav} ${styles.prev}`} onClick={e => { e.stopPropagation(); onPrev() }}>
               <RiArrowLeftSLine />
             </button>
-            <button className={`${styles.nav} ${styles.next}`} onClick={e => { e.stopPropagation(); onNext() }}>
+            <button aria-label="Imagen posterior" className={`${styles.nav} ${styles.next}`} onClick={e => { e.stopPropagation(); onNext() }}>
               <RiArrowRightSLine />
             </button>
           </>

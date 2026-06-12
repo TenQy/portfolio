@@ -82,23 +82,24 @@ function ProjectCard({ project, hideDetails = false }) {
           <div className={styles.overlayBottom} style={{ '--mouse-x': `${mouseX}%`, opacity: mouseSection === 'bottom' ? 1 : 0 }} />
 
           {hasImages && (
-            <button className={styles.expandBtn} onClick={() => setLightboxOpen(true)}>
+            <button aria-label="Expandir imagen" className={styles.expandBtn} onClick={() => setLightboxOpen(true)}>
               <RiFullscreenLine />
             </button>
           )}
 
           {images?.length > 1 && (
             <>
-              <button className={`${styles.navBtn} ${styles.prev}`} onClick={prev}>
+              <button aria-label="Imagen anterior" className={`${styles.navBtn} ${styles.prev}`} onClick={prev}>
                 <RiArrowLeftSLine />
               </button>
-              <button className={`${styles.navBtn} ${styles.next}`} onClick={next}>
+              <button aria-label="Imagen posterior" className={`${styles.navBtn} ${styles.next}`} onClick={next}>
                 <RiArrowRightSLine />
               </button>
               <div className={styles.indicators}>
                 {images.map((_, i) => (
                   <button
                     key={i}
+                    aria-label={`Imagen ${i + 1}`}
                     className={`${styles.dot} ${i === current ? styles.active : ''}`}
                     onClick={() => setCurrent(i)}
                   />
@@ -126,7 +127,7 @@ function ProjectCard({ project, hideDetails = false }) {
 
           <div className={styles.buttons}>
             {project.preview ? (
-              <Button variant="primary" href={project.preview} className={styles.btnFull} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+              <Button aria-label="Ver demo en vivo" variant="primary" href={project.preview} className={styles.btnFull} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                 <RiExternalLinkLine />
                 {t('projects.liveDemo')}
               </Button>
@@ -139,7 +140,7 @@ function ProjectCard({ project, hideDetails = false }) {
 
             <div className={styles.btnRow}>
               {project.github ? (
-                <Button variant="secondary" href={project.github} className={styles.btnGrow} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+                <Button aria-label="Ver repositorio" variant="secondary" href={project.github} className={styles.btnGrow} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                   <RiGithubLine />
                   {t('projects.viewRepo')}
                 </Button>
@@ -150,7 +151,7 @@ function ProjectCard({ project, hideDetails = false }) {
                 </Button>
               )}
               {!hideDetails && (
-                <Button variant="secondary" to={`/projects/${project.id}`} className={styles.btnGrow} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+                <Button aria-label="Ver más detalles" variant="secondary" to={`/projects/${project.id}`} className={styles.btnGrow} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
                   <RiFileTextLine />
                   {t('projects.viewDetails')}
                 </Button>

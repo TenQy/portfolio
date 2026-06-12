@@ -1,10 +1,87 @@
 const kangeequest = import.meta.glob('../assets/images/projects/kangeequest/*.webp')
 const miNuevoHogar = import.meta.glob('../assets/images/projects/mi-nuevo-hogar/*.webp')
 const vie = import.meta.glob('../assets/images/projects/vie/*.webp')
+const avenaPos = import.meta.glob('../assets/images/projects/avena-pos/*.webp')
 
 const toImages = (glob) => Object.values(glob)
 
 export const projects = [
+  {
+    id: 'avena-pos',
+    name: 'Avena - POS',
+    status: 'inProgress',
+    featured: true,
+    technologies: ['Flutter', 'SQLite', 'Drift'],
+    category: ['mobile'],
+    github: 'https://github.com/TenQy/avena',
+    preview: null,
+    images: toImages(avenaPos),
+
+    es: {
+      shortDescription: 'Aplicación móvil desarrollada para una tienda real de alimentos para mascotas, enfocada en gestionar inventario, ventas, caja y empleados mediante una arquitectura offline-first.',
+      fullDescription: 'Avena POS es una aplicación móvil desarrollada para resolver necesidades operativas reales de una tienda de alimentos para mascotas. El proyecto nació a partir de problemas identificados durante la operación diaria del negocio, como el control de inventario, registro de ventas, manejo de caja y administración de empleados. La aplicación fue construida con Flutter, Drift y SQLite bajo un enfoque offline-first, permitiendo que la tienda continúe operando incluso sin conexión a internet. Además de cubrir los procesos principales del negocio, incorpora roles de usuario, respaldos locales, estadísticas operativas y una arquitectura preparada para sincronización futura entre dispositivos.',
+      features: [
+        {
+          name: 'Inventario inteligente',
+          description: 'Gestión de categorías, subcategorías y productos por unidad o a granel. Incluye búsqueda optimizada, control opcional de stock y cálculo automático de porciones para productos vendidos por peso.'
+        },
+        {
+          name: 'Ventas y caja',
+          description: 'Registro de ventas con múltiples métodos de pago, control de caja física, depósitos, retiros y validaciones de negocio para garantizar consistencia en la operación diaria.'
+        },
+        {
+          name: 'Roles y seguridad',
+          description: 'Sistema de permisos con roles de superadministrador, administrador y empleado. Cada rol accede únicamente a las funciones e información que le corresponden.'
+        }
+      ],
+
+      futureImprovements: [
+        {
+          name: 'Sincronización en la nube',
+          description: 'Integrar Supabase para compartir información entre múltiples dispositivos manteniendo soporte offline y sincronización automática.'
+        },
+        {
+          name: 'Reportes y exportaciones',
+          description: 'Generar reportes en Excel y respaldos avanzados para facilitar análisis, auditoría y migración de datos.'
+        }
+      ],
+
+      learnings: 'Este proyecto me permitió trabajar con un caso de uso real y usuarios reales, enfrentándome a decisiones de arquitectura, modelado de datos, permisos, experiencia de usuario y validación de procesos de negocio. Aprendí que diseñar software para resolver problemas cotidianos requiere comprender primero cómo trabajan las personas, validar hipótesis mediante pruebas reales y adaptar continuamente la solución a las necesidades operativas del cliente.'
+
+    },
+
+    en: {
+      shortDescription: 'Mobile application developed for a real pet food store, focused on managing inventory, sales, cash operations and employees through an offline-first architecture.',
+      fullDescription: 'Avena POS is a mobile application developed to solve real operational needs of a pet food store. The project originated from challenges identified during the store’s daily operations, such as inventory control, sales tracking, cash management and employee administration. Built with Flutter, Drift and SQLite under an offline-first approach, it allows the business to continue operating even without an internet connection. In addition to covering core business processes, it includes user roles, local backups, operational statistics and an architecture prepared for future multi-device synchronization.',
+      features: [
+        {
+          name: 'Smart Inventory',
+          description: 'Management of categories, subcategories and products sold by unit or weight. Includes optimized search, optional stock control and automatic portion calculations for weight-based products.'
+        },
+        {
+          name: 'Sales & Cash Management',
+          description: 'Sales registration with multiple payment methods, physical cash tracking, deposits, withdrawals and business validations to ensure consistency in daily operations.'
+        },
+        {
+          name: 'Roles & Security',
+          description: 'Permission system with superadmin, admin and employee roles. Each role only has access to the information and features relevant to its responsibilities.'
+        }
+      ],
+
+      futureImprovements: [
+        {
+          name: 'Cloud Synchronization',
+          description: 'Integrate Supabase to share information across multiple devices while maintaining offline support and automatic synchronization.'
+        },
+        {
+          name: 'Reports & Data Export',
+          description: 'Generate Excel reports and advanced backups to simplify analysis, auditing and data migration.'
+        }
+      ],
+
+      learnings: 'This project allowed me to work with a real-world use case and real users, facing challenges related to software architecture, data modeling, permissions, user experience and business process validation. I learned that building software to solve everyday problems requires understanding how people actually work, validating assumptions through real-world testing and continuously adapting the solution to operational needs.'
+    },
+  },
   {
     id: 'kangeequest',
     name: 'KangeeQuest',
@@ -169,7 +246,7 @@ export const projects = [
     id: 'vie',
     name: 'Vie',
     status: 'prototype',
-    featured: true,
+    featured: false,
     technologies: ['React Native', 'Expo', 'Typescript'],
     category: ['mobile'],
     github: null,
