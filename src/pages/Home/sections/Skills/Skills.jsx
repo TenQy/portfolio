@@ -4,7 +4,7 @@ import TechIcon from '../../../../components/TechIcon/TechIcon'
 import styles from './Skills.module.css'
 import { useMouseGlow } from '../../../../hooks/useMouseGlow'
 
-const categories = ['frontend', 'backend', 'mobile', 'tools']
+const categories = ['languages', 'frameworks', 'database', 'tools']
 
 function Skills() {
   const { t } = useTranslation()
